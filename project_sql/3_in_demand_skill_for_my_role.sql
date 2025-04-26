@@ -10,39 +10,40 @@ SELECT skills_dim.skills, COUNT(*) AS demand_count
 FROM job_postings_fact AS j
 INNER JOIN skills_job_dim ON j.job_id = skills_job_dim.job_id
 INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
-WHERE j.job_title_short = 'Data Scientist' 
+WHERE j.job_title_short = 'Data Analyst' 
 GROUP BY skills_dim.skills
 ORDER BY demand_count DESC
 LIMIT 5
 
 /*
     Insight:
-    This query identifies the top 5 most in-demand skills for Data Scientists across all job postings.
-    Python tops the list, followed by SQL and R, highlighting the need for strong programming and data manipulation skills.
-    SAS and Tableau also appear, showing continued demand for statistical tools and data visualization.
-    These results suggest that job seekers aiming for data science roles should prioritize mastering Python, SQL, and R, while also gaining familiarity with tools like SAS and Tableau for a competitive edge.
+    This query identifies the top 5 most in-demand skills for Data Analyst across all job postings.
+    SQL tops the list, followed by Excel and Python, highlighting the need for strong programming and data manipulation skills.
+    Power BI and Tableau also appear, showing continued demand for statistical tools and data visualization.
+    These results suggest that job seekers aiming for data analyst roles should prioritize mastering SQL,Excel and Python, while also gaining familiarity with tools like Power BI and Tableau for a competitive edge.
 
 
-    [
-  {
-    "skills": "python",
-    "demand_count": "114016"
-  },
+[
   {
     "skills": "sql",
-    "demand_count": "79174"
+    "demand_count": "92628"
   },
   {
-    "skills": "r",
-    "demand_count": "59754"
+    "skills": "excel",
+    "demand_count": "67031"
   },
   {
-    "skills": "sas",
-    "demand_count": "29642"
+    "skills": "python",
+    "demand_count": "57326"
   },
   {
     "skills": "tableau",
-    "demand_count": "29513"
+    "demand_count": "46554"
+  },
+  {
+    "skills": "power bi",
+    "demand_count": "39468"
   }
+
 ]
 */
